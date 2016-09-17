@@ -1,0 +1,144 @@
+<!--这是报告的页面-->
+<!--周靖人 2016/8/9-->
+<xy-loading xy-loading-title="报告页面" xy-body-class="xy-report-body" ng-show="loadingShow"></xy-loading>
+<div class="xy-report unselectable" style="z-index: 1;position: absolute">
+    <xy-title-bar xy-title="报告页面"></xy-title-bar>
+
+    <div class="xy-report-body ">
+        <div>
+            <div class="xy_report_date_box">
+
+                <div class="xy_report_date">
+                    <input type="text"
+                           tabindex="-1"
+                           readonly
+                           class="form-control xy_report_form_date"
+                           uib-datepicker-popup="{{format}}"
+                           ng-model="date"
+                           is-open="dataPickerOpen"
+                           datepicker-options="dateOptions"
+                           ng-required="true"
+                           alt-input-formats="altInputFormats"
+                    />
+
+                    <span class="input-group-btn xy_report_btn">
+                        <button type="button"
+                                tabindex="-1"
+                                class="btn btn-default"
+                                ng-click="openDatePicker()">
+                            <i class="glyphicon glyphicon-menu-down"></i>
+                        </button>
+                    </span>
+
+                </div>
+                <span>
+                    至
+                </span>
+                <div class="xy_report_date" >
+                    <input type="text"
+                           tabindex="-1"
+                           readonly
+                           class="form-control xy_report_form_date"
+                           uib-datepicker-popup="{{format}}"
+                           ng-model="dateEnd"
+                           is-open="dataEndPickerOpen"
+                           datepicker-options="dateOptions"
+                           ng-required="true"
+                           alt-input-formats="altInputFormats"
+                    />
+
+                <span class="input-group-btn xy_report_btn">
+                    <button type="button"
+                            tabindex="-1"
+                            class="btn btn-default"
+                            ng-click="openDateEndPicker()">
+                        <i class="glyphicon glyphicon-menu-down"></i>
+                    </button>
+                </span>
+                </div>
+            </div>
+
+            <p class="class-name">
+                <span>当前课程：</span>
+                <span ng-bind="curtCourse.name" title="{{curtCourse.name}}"></span>
+            </p>
+        </div>
+
+        <div class="xy-report-no-data" ng-show="!hasQuestions()">
+            <div class="xy-report-no-data-background">
+                <span class="xy-report-no-data-prompt">暂无数据</span>
+            </div>
+        </div>
+
+        <div  ng-show="hasQuestions()" >
+            <p class="xy_report_rate_pRate">正确率&参与率</p>
+
+            <!--div class="xy-report-chart"-->
+                <div id="chart-container" style="width: 924px;height:300px;overflow: auto"></div>
+            <!--/div-->
+
+            <p class="xy_report_answer_details">答题详情</p>
+
+            <div class="xy_report_all_achievement">
+                <div class="xy_report_excellent">
+                    <span class="xy_report_excellent_rate">优秀（正确率≥85%）</span>
+                    <span class="xy_report_excellent_people">{{getNumOfExcellentStudents()}}人</span>
+                 </div>
+
+                <div class="xy_report_good">
+                    <span class="xy_report_good_rate">良好（正确率≥70%）</span>
+                    <span>{{getNumOfGoodStudents()}}人</span>
+                </div>
+
+                <div class="xy_report_qualified">
+                    <span class="xy_report_qualified_rate">合格（正确率≥60%）</span>
+                    <span>{{getNumOfQualifiedStudents()}}人</span>
+                </div>
+
+                <div class="xy_report_substandard">
+                    <span class="xy_report_substandard_rate">不合格（正确率<60%）</span>
+                    <span>{{getNumOfUnqualifiedStudents()}}人</span>
+                </div>
+            </div>
+
+            <div class="report-form" xy-scroll on-scroll="onTableScroll(data)">
+                <table>
+                    <thead class="xy-report-form-header" style="z-index: 1000">
+                        <tr>
+                            <th>编号</th>
+                            <th>名字</th>
+                            <th>参与率</th>
+                            <th>正确率</th>
+                            <th>操作</th>
+                        </tr>
+                     </thead>
+
+                    <tbody>
+                        <tr ng-repeat="stu in students | limitTo: numberOfStudentsToDisplay" ng-class="{highrate:stu.correctRate>=0.85
+                        ,secondrate:stu.correctRate>=0.7&&stu.correctRate<0.85,
+                        thirdrate:stu.correctRate<0.7&&stu.correctRate>=0.6,
+                        lastrate:stu.correctRate<0.6}">
+                            <td>{{$index+1}}</td>
+                            <td>{{stu.name}}</td>
+                            <td>{{stu.participateRate|percent}}</td>
+                            <td>{{stu.correctRate|percent}}</td>
+                            <td>
+                                <a ng-click="drawReport($event, stu)">生成错误报告</a>
+                                <input ng-show="false"
+                                       type="file"
+                                       accept=".doc"
+                                       onchange="angular.element(this).scope().generateErrorQuestionReport(this)"
+                                       nwsaveas=""
+                                />
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

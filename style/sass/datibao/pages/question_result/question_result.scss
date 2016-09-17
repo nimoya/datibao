@@ -1,0 +1,101 @@
+.question-result-body{
+  overflow: auto;
+  height: 665px;
+  background-color: #fff;
+  padding-bottom: 10px;
+  padding-top: 20px;
+
+  &>p{
+    font-size: 18px;
+    margin: 30px 0 0 63px;
+    color: $deepGrey;
+  }
+  .question-result-body-title{
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    margin: 15px auto;
+    width: 900px;
+    background-color: #ddd;
+    padding: 0 20px;
+    color: #555;
+    &>span{
+      float: left;
+      &:first-child{
+        max-width: 250px;
+        @include textOverflowEllipsis;
+      }
+    }
+    p{
+      float: left;
+    }
+    .correct-answer{
+      font-size: 18px;
+      color: #999;
+      margin: 49px 0 45px 228px;
+      span:nth-child(2n){
+        color: $threeGreen;
+        margin-right: 15px;
+      }
+    }
+  }
+  .screenshot{
+    img{
+      width: 900px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  .answer-situation{
+    width: 900px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    table{
+      width: 100%;
+      border: $greyBorder;
+      thead{
+        background-color: #666;
+        color: #fff;
+        tr{
+          font-weight: bold;
+          height: 60px;
+          th{
+            text-align: center;
+            min-width: 132px;
+            font-size: 18px;
+            width: 10%;
+            &:last-child{
+              width: 60%;
+            }
+          }
+        }
+      }
+      tbody{
+        color: $orange;
+        tr{
+          height: 54px;
+          border-bottom:$greyBorder;
+          &.trueanswer{
+            color: $threeGreen;
+          }
+          td{
+            text-align: center;
+            width: 10%;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-right:$greyBorder;
+            span{
+              max-width: 452px;
+              display: inline-block;
+              @include  textOverflowEllipsis;
+              margin-right: 10px;
+            }
+            &:last-child{
+              width: 60%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

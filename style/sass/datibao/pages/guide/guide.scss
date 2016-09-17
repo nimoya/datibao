@@ -1,0 +1,67 @@
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.xy-guide {
+  $animationDistance: 56px;
+
+  .xy-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url("../../../../../img/start_page.png");
+  }
+
+
+  .xy-progress {
+    display: block;
+    margin: 200px auto;
+    text-align: center;
+  }
+
+  .xy-gray-circle ,
+  .xy-white-circle {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+  }
+
+  .xy-gray-circle {
+    position: relative;
+    margin-left: 6px;
+    overflow: hidden;
+    background: rgba(243 ,231, 231, .6);
+  }
+
+  .xy-white-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+  }
+
+  @for $i from 1 through 6 {
+    @keyframes circle-moving-nth#{$i}-child {
+      0% {
+        left: -8px * $i;
+      }
+
+      100% {
+        left: $animationDistance - 8px * $i;
+      }
+    }
+
+    .xy-gray-circle:nth-child(#{$i}) .xy-white-circle {
+      left: -8px * $i;
+      -webkit-animation: circle-moving-nth#{$i}-child 1.5s linear infinite;
+    }
+  }
+}

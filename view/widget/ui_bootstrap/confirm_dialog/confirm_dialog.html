@@ -1,0 +1,15 @@
+<div class="xy-confirm-dialog">
+    <div class="xy-confirm-dialog-header">
+        <span>信息提示</span>
+        <button ng-click="cancel()">
+            <i class="iconfont">&#xe602;</i>
+        </button>
+    </div>
+
+    <p ng-bind="message" title="{{message}}"></p>
+
+    <div class="xy-confirm-dialog-btn">
+        <button ng-click="ok()">确认</button>
+        <button ng-click="cancel()">取消</button>
+    </div>
+</div>

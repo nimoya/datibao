@@ -1,0 +1,91 @@
+<div class="xy-multiple-question-result">
+    <div class="xy-multiple-question-result-title" xy-draggable>
+        <div class="title-text">
+            <img src="../../img/multiple-title.png">
+            <span>多题模式</span>
+        </div>
+        <div class="title-icon">
+            <span class="iconfont" ng-click="minimize()">&#xe600;</span>
+            <span class="iconfont" ng-click="closeWin()">&#xe602;</span>
+        </div>
+    </div>
+
+    <div class="xy-multiple-question-result-body">
+        <div class="xy-multiple-question-result-table" xy-scroll on-scroll="onTableScroll(data)">
+            <table>
+                <thead>
+                    <tr class="xy-multiple-question-result-info-header">
+                        <th>编号</th>
+                        <th>正确答案</th>
+                        <th>正确率</th>
+                        <th>参与率</th>
+                        <th>查看详情</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="question in getQuestions() | limitTo: numberOfQuestionsToDisplay">
+                        <td>
+                            <span>{{$index + 1}}</span>
+                        </td>
+
+                        <td>
+                            <div ng-show="isShowQuestionAnswer(question)"
+                                 ng-mouseover="showResetQuestionButton($event)"
+                                 ng-mouseleave="hideResetQuestionButton($event)">
+                                <span >
+                                    <span ng-show="getQuestionType(question) === SELECTION_QUESTION">
+                                        {{getQuestionAnswer(question)}}
+                                    </span>
+
+                                    <span ng-show="getQuestionType(question) === TRUE_FALSE_QUESTION">
+                                        <span ng-show="getQuestionAnswer(question) === '$'">
+                                            <img src="../../img/correct.png">
+                                        </span>
+
+                                        <span ng-show="getQuestionAnswer(question) === '^'">
+                                            <img src="../../img/error.png">
+                                        </span>
+                                    </span>
+                                </span>
+
+                                <button class="reset-answer-btn hide"
+                                        tabindex="-1"
+                                        ng-click="setQuestionAnswer(question)">
+                                    <img src="../../img/change.png">
+                                </button>
+                            </div>
+
+                            <a ng-show="isShowQuestionSetBtn(question)"
+                                ng-click="setQuestionAnswer(question)"
+                                class="multiple-setting">
+                                设置
+                            </a>
+                        </td>
+
+                        <td>
+                            <span>
+                                {{question.cRate | percent}}
+                            </span>
+                        </td>
+
+                        <td>
+                            <span>
+                                {{question.pRate | percent}}
+                            </span>
+                        </td>
+
+                        <td>
+                            <a class="multiple-detail"
+                               ng-class="{diabled: !isDetailBtnEnable(question)}"
+                               ng-click="openDetail(question)">
+                                详情
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <xy-alert ng-show="alerting" xy-content="{{alertContent}}"></xy-alert>
+</div>

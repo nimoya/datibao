@@ -1,0 +1,16 @@
+<div class="xy-answer-students unselectable">
+	<h1 class='xt-title' xy-draggable>
+		{{title}}
+	</h1>
+
+	<div class="xy-student-list">
+		  <div class="xy-student" ng-repeat="student in students">
+			<a ng-click="openStudentStage(student.sIndex)" title="{{student.name}}">
+				{{student.name}}
+			</a>
+		</div>
+		<xy-float-tabs xy-style="greenBlack"></xy-float-tabs>
+	</div>
+
+	<xy-alert ng-show="alerting" xy-content="{{alertContent}}"></xy-alert>
+</div>

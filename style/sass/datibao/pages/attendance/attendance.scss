@@ -1,0 +1,140 @@
+.xy-attendance{
+   &.unselectable {
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+       }
+   .xy_title_bar{
+      .xy_bar_ops {
+         margin-top: 2px;
+      }
+   }
+   border-left:5px solid $deepGreen;
+   border-right:5px solid $deepGreen;
+   border-bottom:5px solid $deepGreen;
+   height:700px;
+   .register{
+      height: auto;
+      padding:30px;
+      margin: 0px;
+      .btn-group{
+         width:558px;
+         height:33px;
+         background-color: $deepGreen;
+
+         .btn{
+            position: relative;
+            width: 25%;
+            height: 40px;
+            line-height:20px;
+            padding: 5px 2px;
+            color: $white;
+            font-family: "Microsoft YaHei";
+            font-size:18px;
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+            box-shadow: none;
+            &.active{
+               div{
+                  display: block;
+               }
+            }
+            div{
+               width: 0;
+               height: 0;
+               margin: 0 auto;
+               margin-top: 8px;
+               border-left: 8px solid transparent;
+               border-right: 8px solid transparent;
+               border-top: 7px solid $deepGreen;
+               display: none;
+            }
+         }
+      }
+   }
+}
+     .xy-list-body {
+         height:500px;
+         width: 100%;
+         padding: 30px 0 0;
+
+        .xy-green-line  {
+           height: 5px;
+           background-color: $deepGreen;
+        }
+
+        .inner-wrapper {
+            width: 100%;
+            height: 500px;
+            overflow: auto;
+
+            .list_students{
+               width: 100%;
+               height: auto;
+               .list_nature{
+                  width: 947px;
+                  height: 50px;
+                  position: relative;
+                  z-index: 100;
+                  .list{
+                     background-color: $smallGrey;
+                     border-bottom:$greyBorder;
+                     border-right: $greyBorder;
+                     border-left:$greyBorder;
+                     border-top: none;
+                     text-align: center;
+                     color:$deepGreen;
+                     font-size: $tdFontSize;
+                     font-family: "Microsoft YaHei";
+                     &:first-child{
+                        width: 10%;
+                     }
+                     &:nth-child(2),&:nth-child(3){
+                        width: 35%;
+                        max-width: 334px;
+                        padding: 0 20px;
+                        @include textOverflowEllipsis;
+                     }
+                     &:last-child{
+                        width: 20%;
+                     }
+                  }
+
+               }
+               .list_body{
+                  width: 947px;
+                  height: 50px;
+                  border:1px solid $deepGrey;
+                  .list{
+                     border:$greyBorder;
+                     text-align: center;
+                     color:$deepGrey;
+                     font-size: $tdFontSize;
+                     font-family: "Microsoft YaHei";
+                     &:first-child{
+                        width: 10%;
+                     }
+                     &:nth-child(2),&:nth-child(3){
+                        width: 35%;
+                        max-width: 334px;
+                        padding: 0 20px;
+                        @include textOverflowEllipsis;
+                     }
+                     &:last-child{
+                        width: 20%;
+                     }
+                  }
+                  .attendance{
+                     color: $deepGreen;
+                  }
+                  .unBindCard{
+                     color: $middleGray;
+                  }
+                  .unAttendance{
+                     color: $red;
+                  }
+               }
+            }
+   }
+}

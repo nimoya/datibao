@@ -1,0 +1,122 @@
+.xy-manage-class{
+    &.unselectable {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    @include bottomOpenSize;
+    font-size: 18px;
+    position: relative;
+
+    .xy-manage-class-content {
+        @include bottomOpenContent;
+        padding-bottom: 30px;
+
+        .xy-manage-class-body{
+            background-color: $white;
+            @include bottomOpenPaddingLR;
+            @include bottomOpenPaddingT;
+
+            .xy-manage-class-btn-wrapper{
+                padding-bottom: 22px;
+                text-align: right;
+
+                .xy-manage-class-btn-wrapper_selectAll,
+                .xy-manage-class-btn-wrapper_unSelectAll,
+                .xy-manage-class-btn-wrapper_batchDelete{
+                    @include bottomOpenBtnPadding;
+                    border:0;
+                    outline: 0;
+                    @include bottomOpenTableTiele;
+                }
+                .xy-manage-class-btn-wrapper_selectAll:hover,
+                .xy-manage-class-btn-wrapper_unSelectAll:hover,
+                .xy-manage-class-btn-wrapper_batchDelete:hover{
+                    background-color: #414141 !important;
+                }
+                .xy-manage-class-btn-wrapper_batchDelete.disabled{
+                    background-color: #aaa !important;
+                    &:hover{
+                        background-color: #aaa !important;
+                    }
+                }
+            }
+
+            .xy-manage-class_all_class{
+                overflow: auto;
+                height: 430px;
+
+                .xy_manage_class_table{
+                    width: 100%;
+                    font-size: 18px;
+                    border: 1px solid $gray;
+
+                    .xy_manage_class_header{
+                        @include bottomOpenTableTiele;
+
+                        th{
+                            text-align: center;
+                            padding: 10px;
+                            &:first-child{
+                                border-left: none;
+                                width: 123px;
+                            }
+                            &:nth-child(2){
+                                width: 123px;
+                            }
+                            &:nth-child(3){
+                                width: 307px;
+                            }
+                        }
+                    }
+
+                    .xy-manage-class_info{
+                        border:1px solid $gray;
+
+                        td{
+                            min-width: 60px;
+                            max-width: 150px;
+                            text-align: center;
+                            padding: 10px;
+                            border-left: 1px solid $gray;
+                            font-size: $tdFontSize;
+
+                            &:first-child{
+                                border-left: none;
+                                width: 123px;
+                            }
+                            &:nth-child(2){
+                                width: 123px;
+                            }
+                            &:nth-child(3){
+                                width: 307px;
+                            }
+
+                            input{
+                                text-align: center;
+                                border:0;
+                                outline: 0;
+                                font-size: $tdFontSize;
+                                font-family: "微软雅黑";
+                                @include textOverflowEllipsis;
+                            }
+                        }
+                    }
+                    .xy-manage-class_info
+                    .xy-course-delete-btn{
+                        color: $red;
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+        }
+
+        .xy-manage-class-footer{
+            @include bottomOpenFooter;
+            margin-top: 67px;
+            margin-bottom: 34px;
+        }
+    }
+}

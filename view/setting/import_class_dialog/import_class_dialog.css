@@ -1,0 +1,41 @@
+.xy-setting-import-class .modal-dialog.modal-lg{
+    width: 300px;
+    margin: 25% auto;
+}
+.xy-import-class-dialog{
+    padding: 10px;
+}
+.xy_alert_whether_replace_class{
+    text-align: center;
+    font-family: '微软雅黑';
+    font-size: 20px;
+    color:red;
+    line-height: 30px;
+    margin: 0;
+}
+.xy_alert_class_botton{
+    margin: 20px 20px 10px 20px;
+    text-align: center;
+}
+.xy_alert_class_botton_ok{
+    background-color:#13e0d9;
+    color:#fff;
+    border:0;
+    outline: 0;
+    padding: 3px 6px;
+    width: 45%;
+}
+.xy_alert_class_botton_ok:hover{
+    background-color:#0fdbd2;
+}
+.xy_alert_class_botton_cancel{
+    background-color: #808080;
+    color:#fff;
+    border:0;
+    outline: 0;
+    padding: 3px 6px;
+    width: 45%;
+}
+.xy_alert_class_botton_cancel:hover{
+    background-color: #6c6c6c;
+}

@@ -1,0 +1,90 @@
+<!--这是课程管理窗口-->
+<!--沈奥林 2016/6/2-->
+<div class="xy-manage-class unselectable">
+    <xy-setting-title-bar
+            version="{{getVersion()}}"
+            active-button="manageClass">
+    </xy-setting-title-bar>
+
+    <div class="xy-manage-class-content">
+        <div class="xy-manage-class-body">
+            <div class="xy-manage-class-btn-wrapper">
+                <button class="xy-manage-class-btn-wrapper_selectAll"
+                        tabindex="-1"
+                        ng-click="selectAll()"
+                        ng-show="isShowSelectAllBtn()">
+                    全选
+                </button>
+                <button class="xy-manage-class-btn-wrapper_unSelectAll"
+                        tabindex="-1"
+                        ng-click="unSelectAll()"
+                        ng-show="!isShowSelectAllBtn()">
+                    取消全选
+                </button>
+                <button class="xy-manage-class-btn-wrapper_batchDelete"
+                        tabindex="-1"
+                        ng-class="{disabled: getSelectedCourses().length <= 0}"
+                        ng-disabled = "getSelectedCourses().length <= 0"
+                        ng-click="batchDelete()">
+                    批量删除
+                </button>
+            </div>
+
+            <div class="xy-manage-class_all_class">
+                <table class="xy_manage_class_table">
+                    <thead>
+                    <tr class="xy_manage_class_header">
+                        <th>选择</th>
+                        <th>编号</th>
+                        <th>课程名称</th>
+                        <th>课程人数</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="course in getCourses()" class="xy-manage-class_info">
+                        <td>
+                            <input class="xy-course-select"
+                                   type="checkbox"
+                                   ng-model="course.selected"
+                            />
+                        </td>
+
+                        <td>
+                            <span class="xy-course-index">{{$index + 1}}</span>
+                        </td>
+
+                        <td title="{{course.name}}">
+                            <input type="text"
+                                   class="xy-course-name"
+                                   ng-model="course.name"
+                                   ng-focus="onInputFocusIn($event)"
+                                   ng-blur="onCourseNameInputBlur(course)"
+                            />
+                        </td>
+
+                        <td>
+                            <span class="xy-course-students-number">
+                                {{getStudentsNumber(course)}}
+                            </span>
+                        </td>
+
+                        <td>
+                            <a class="xy-course-delete-btn" ng-click="deleteCourse(course)">
+                                删除课程
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="xy-manage-class-footer">
+            <p>操作说明：点击课程名称可以对课程名称进行修改</p>
+        </div>
+    </div>
+
+    <xy-alert ng-show="alerting" xy-content="{{alertContent}}"></xy-alert>
+</div>

@@ -1,0 +1,15 @@
+
+<!--<xy-title-bar xy-title="单个学生作答" xy-min-disable ></xy-title-bar>-->
+<div class="xy-student-stage  {{style}} unselectable">
+
+    <div class="header" xy-draggable>{{title}}</div>
+    <div class="time_count">{{timeStr}}</div>
+    <div class="answer_content">
+        <div class="student_index">请{{student.sIndex}}号</div>
+        <div class="student_name" title = "{{student.name}}">{{student.name}}</div>
+        <div class="answer_text" >回答问题</div>
+        <button class="return" tabindex="-1" ng-click="close()">返回</button>
+    </div>
+</div>
+
+

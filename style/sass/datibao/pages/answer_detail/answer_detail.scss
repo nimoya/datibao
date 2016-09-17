@@ -1,0 +1,198 @@
+@import "true_false_question_answer_detail/true_false_question_answer_detail";
+
+.xy_answer_content {
+  &.unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  .xy_answer_header {
+    width: $widthOne;
+    height: $heightTwo;
+    background-color: $heaveGreen;
+    position: relative;
+    .word {
+      font-family: "Microsoft YaHei";
+      font-size: 24px;
+      color: $white;
+      text-align: center;
+      line-height: $heightTwo;
+      cursor: default;
+    }
+  }
+  .xy_answer_rate {
+    width:$widthOne;
+    height: $heightTwo;
+    .xy_answer_r {
+      width: 50%;
+      height: $heightTwo;
+      text-align: center;
+      float: left;
+      line-height:$heightTwo;
+      .right {
+        font-size: 20px;
+        font-family: "Microsoft YaHei";
+        color: $lightGreen;
+      }
+      .join {
+          font-size: 20px;
+          font-family: "Microsoft YaHei";
+          color: $deepYellow;
+        }
+    }
+  }
+
+  .xy_answer_stat {
+    width: $widthOne;
+    height:$heightThree;
+    position: relative;
+    .xy-prompt{
+        padding: 6px 10px;
+        color: #444;
+       font-size: 18px;
+      font-family: "Microsoft YaHei";
+    }
+    .letter{
+      vertical-align: middle;
+      display: inline-block;
+      width: $widthOne;
+      height: 40px;
+      margin: 6px 0;
+      position: relative;
+      &.error {
+        .select_one_letter{
+           color: $red;
+         }
+        .color_one{
+          background-color: $red !important;
+        }
+      }
+
+      &.correct {
+        .select_one_letter {
+          color: $limeGreen;
+        }
+        .color_one{
+          background-color: $limeGreen !important;
+        }
+      }
+
+      .select_one_letter {
+        width: 50px;
+        line-height: $heightfour;
+        font-family: "Microsoft YaHei";
+        font-size: 24px;
+        color: $deepGrey;
+        float: left;
+        cursor: pointer;
+        text-align: center;
+
+      }
+      .rate_itself {
+        height: $heightfour;
+        width:$widthTwo;
+        background-color: #f1f1f1;
+        position: relative;
+        float: left;
+        &.open{
+          cursor: default;
+        }
+        &.hasMember{
+          cursor: pointer;
+        }
+        .xy_answer_deail_right_arrow {
+          position: absolute;
+          right: 5px;
+          top: 7px;
+          color: $greyWhite;
+        }
+        .color_one {
+          width: 81px;
+          height: $heightfour;
+          background-color: $skyBlue;
+          -webkit-transition: width 1s;
+          transition: width 1s;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        &:hover {
+          background-color: $gray;
+        }
+        .rate_text_one {
+          line-height: $heightfour;
+          font-size: 20px;
+          color: $black;
+          position: absolute;
+          right: 30px;
+          top: 0;
+        }
+      }
+    }
+    .rate_itself_five {
+      width: $widthOne;
+      height: $heightfour;
+      margin: 6px 0;
+      .nothing {
+        font-family: "SimSun";
+        font-size: 14px;
+        width: 50px;
+        line-height:$heightfour;
+        color: $deepGrey;
+        float: left;
+        text-align: center;
+      }
+
+    .rate_itself_two {
+      height: $heightfour;
+      width: $widthTwo;
+      background-color: $lightGrey;
+      float: left;
+      position: relative;
+      &.open{
+        cursor: default;
+      }
+       &.hasMember {
+        cursor: pointer;
+       }
+
+      .xy_answer_deail_right_arrow {
+        position: absolute;
+        right: 5px;
+        top: 7px;
+        color: $greyWhite;
+      }
+      .color_two {
+        width: 69px;
+        height: $heightfour;
+        background-color: $greyWhite;
+
+        -webkit-transition: width 1s;
+        transition: width 1s;
+        &:hover {
+          opacity: 0.8;
+        }
+
+      }
+      &:hover {
+        background-color: $gray;
+      }
+      .rate_text_two {
+        line-height: $heightfour;
+        font-size: 20px;
+        color: $black;
+        position: absolute;
+        right: 30px;
+        top: 0;
+      }
+     }
+
+    }
+  }
+
+
+}
+
+
+
+

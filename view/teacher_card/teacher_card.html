@@ -1,0 +1,95 @@
+
+<div class="xy-teacher-card unselectable">
+    <xy-setting-title-bar
+            version="{{getVersion()}}"
+            active-button="manageTeacher">
+    </xy-setting-title-bar>
+
+    <div class="xy-teacher-card-content">
+        <div class="xy-teacher-card-body">
+            <div class="xy-teacher-card-btn-wrapper">
+                <button class="btn xy-btn-add-new-teacher"
+                        tabindex="-1"
+                        ng-click="addTeacherCard()">
+                    新增教师卡
+                </button>
+            </div>
+
+            <div class="xy-teacher-card-table-wrapper">
+                <table class="xy-teacher-card-info">
+                    <thead>
+                    <tr class="xy-teacher-card-info-header">
+                        <th class="xy-teacher-card-index">编号</th>
+                        <th class="xy-teacher-card-name">姓名</th>
+                        <th class="xy-teacher-card-id">卡片序号</th>
+                        <th class="xy-teacher-card-operation">操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="xy-teacher-card-info-content">
+                    <tr class="xy-teacher-card-info-teacher"
+                        ng-repeat="teacherCard in getTeacherCards()">
+                        <td class="xy-teacher-card-index">
+                            {{$index + 1}}
+                        </td>
+
+                        <td class="xy-teacher-card-name" title="{{teacherCard.name}}">
+                            <input type="text"
+                                   ng-model="teacherCard.name"
+                                   ng-focus="onNameInputFocus(teacherCard)"
+                                   ng-keydown="onInputKeyDown($event, $index, 1)"
+                                   ng-blur="updateTeacherCardName(teacherCard)"
+                            />
+                        </td>
+
+                        <td class="xy-teacher-card-id">
+                            <input type="text"
+                                   ng-show="!teacherCard.cardId || teacherCard.available == 1"
+                                   ng-focus="onTeacherCardIdInputFocus(teacherCard)"
+                                   ng-blur="onTeacherCardIdInputBlur(teacherCard)"
+                                   ng-keydown="onInputKeyDown($event, $index, 2)"
+                                   ng-model="teacherCard.cardId"
+                            />
+
+                            <span ng-show="!!teacherCard.cardId && teacherCard.available != 1">
+                                {{teacherCard.cardId}}
+                            </span>
+                        </td>
+
+                        <td class="xy-teacher-card-operation">
+                            <a  class="xy-teacher-card-operation-bind"
+                                ng-show="teacherCard.available==0"
+                                ng-click="startWaitingBind(teacherCard)">
+                                绑定教师卡
+                            </a>
+
+                            <a  class="xy-teacher-card-operation-bind"
+                                ng-show="teacherCard.available==2"
+                                ng-click="rebindTeacherCard(teacherCard)">
+                                更新教师卡
+                            </a>
+
+                            <a class="xy-teacher-card-operation-press-key"
+                               ng-show="teacherCard.available==1" >
+                                请按键
+                            </a>
+
+                            <a class="xy-teacher-card-operation-delete"
+                               ng-click="deleteTeacherCard(teacherCard)">
+                                删除
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="xy-teacher-card-footer">
+            <p class="xy-teacher-card-operating-instruction">操作说明：在操作栏点击绑定教师卡，按卡片任意键即可完成匹配，点击删除教师卡可以删除已经绑定的卡和教师信息，教师姓名可修改</p>
+        </div>
+    </div>
+
+    <xy-alert ng-show="alerting" xy-content="{{alertContent}}"></xy-alert>
+</div>
+

@@ -1,0 +1,94 @@
+<div ng-show="saveRecordsShow">
+    <xy-save-records ></xy-save-records>
+</div>
+
+<div class="home_lihome unselectable" style="z-index: 1">
+    <xy-title-bar xy-title="答题宝" ></xy-title-bar>
+
+    <!--用户头像和班级选择-->
+    <div class="xy_user_area" >
+        <!--头像-->
+        <div class="xy_user_avatar"></div>
+
+        <!--用户信息区-->
+        <div class="xy_user_info">
+            <div style="position: relative">
+                <p class="xy_user_name" title="{{getUsername()}}">{{getUsername()}}</p>
+                 <span uib-dropdown on-toggle="toggled(open)" class="xy_home_class_name">
+                          <a id="simple-dropdown"
+                             uib-dropdown-toggle
+                             class="xy_home_class_name_a"
+                             title="{{getCurtCourseName()}}">
+                            {{getCurtCourseName()}}
+                              <i class="iconfont xy_home_class_name_icon">&#xe608;</i>
+                          </a>
+
+                      <ul class="dropdown-menu xy_home_class_name_ul" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                        <li ng-repeat="course in getCourses()" class="xy_home_class_name_list">
+                          <a ng-click="onCourseChanged(course)"
+                             class="xy_home_select_class_name"
+                             title="{{course.name}}">
+                              {{course.name}}
+                          </a>
+                        </li>
+                      </ul>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!--执行的主要操作-->
+    <div class="xy_main_options">
+        <div class="xy_option_tile option_tile_one" ng-click="openClassAnswer()">
+            <div class="xy_tile_img tile_img_one">
+            </div>
+            <div class="xy_tile_name ">全班作答</div>
+
+        </div>
+        <div class="xy_option_tile option_tile_two" ng-click="openAttendance()">
+            <div class="xy_tile_img tile_img_two"></div>
+            <div class="xy_tile_name ">学生签到</div>
+        </div>
+        <div class="xy_option_tile option_tile_three" ng-click="openRushAnswer()">
+            <div class="xy_tile_img tile_img_three"></div>
+            <div class="xy_tile_name ">全员抢答</div>
+        </div>
+        <div class="xy_option_tile option_tile_four" ng-click="openRandomRoll()">
+            <div class="xy_tile_img tile_img_four"></div>
+            <div class="xy_tile_name ">随机选答</div>
+        </div>
+    </div>
+
+    <!--底部的操作-->
+    <div class="xy_bottom_bar">
+        <div class="xy_bottom-tool" ng-click="openMultipleQuestionPage()">
+            <div class="xy_tool_img tool_img_one">
+                <img class="iconfont" src="../../img/teachercard.png">
+            </div>
+            <div class="xy_tool_name tool_name_one">
+                多题模式
+            </div>
+        </div>
+
+        <div class="xy_bottom-tool" ng-click="openReport()">
+            <div class="xy_tool_img tool_img_two">
+                <i class="iconfont">&#xe603;</i>
+            </div>
+            <div class="xy_tool_name tool_name_two">
+                查看报告
+            </div>
+        </div>
+
+        <div class="xy_bottom-tool" ng-click="openSetting()">
+            <div class="xy_tool_img tool_img_three">
+                <i class="iconfont">&#xe601;</i>
+            </div>
+            <div class="xy_tool_name tool_name_three">
+                设置
+            </div>
+        </div>
+    </div>
+
+    <!--通知栏-->
+    <xy-alert ng-show="alerting" xy-content="{{alertContent}}"></xy-alert>
+</div>

@@ -1,0 +1,43 @@
+<!--这是全班作答的页面-->
+<!--邓俊生 2016/6/3-->
+<!--<xy-title-bar xy-title="全班作答"></xy-title-bar>-->
+<div class="xy_single_answer unselectable">
+    <div class="header" xy-draggable>全班作答</div>
+    <div class="time_count">{{getTimeString()}}</div>
+    <div class="content">
+        <div class="background" style="height: {{getAnsweredRate() * 100}}%;"></div>
+        <div class="have_answer">已答题:</div>
+        <div class="have_answer_count">{{getAnsweredMembers().length}}</div>
+        <div class="no_answer">
+            <div class="header_no_answer">
+                <button class="header_no_answer_btn btn"
+                         ng-show="isNormalCourse()"
+                         tabindex="-1"
+                         ng-click="openUnAnswerStudentPage()"
+                         ng-class="{disable:getUnAnsweredMembers().length <= 0}">
+                    未答题详情
+                </button>
+                <button class="header_no_answer_btn btn"
+                         tabindex="-1"
+                         ng-show="!isNormalCourse()"
+                         ng-class="{disable:!UserService.isNormal()}">
+                    未答题人数
+                </button>
+            </div>
+            <div class="contain_no_answer">{{getUnAnsweredMembers().length}}</div>
+        </div>
+
+        <button class="stat"
+                tabindex="-1"
+                ng-click="openDetail()">
+                结束答题
+        </button>
+        
+        <button class="return"
+                tabindex="-1"
+                ng-click="closeWin()">
+                返回
+        </button>
+     </div>
+    <xy-alert ng-show="isShowAlert()" xy-content="{{getAlertContent()}}"></xy-alert>
+</div>

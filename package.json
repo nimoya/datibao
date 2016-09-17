@@ -1,0 +1,18 @@
+{
+  "name": "datibaos3_offline_1",
+  "main": "index.html",
+  "version": "0.0.1",
+  "debug": true,
+  "dependencies": {
+    "docxtemplater": "^2.1.3",
+    "docxtemplater-image-module": "^1.0.3",
+    "node-hid": "^0.5.1",
+    "node-uuid": "^1.4.7"
+  },
+  "window": {
+    "frame": false,
+    "resizable": false,
+    "show": false,
+    "icon": "img/datibao.png"
+  }
+}

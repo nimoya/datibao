@@ -1,0 +1,61 @@
+<!--这是答题详情窗口-->
+<!--沈奥林 2016/6/2-->
+<!--<xy-title-bar xy-title="答题详情" xy-min-disable ></xy-title-bar>-->
+<div class="xy_answer_content unselectable">
+    <div class="xy_answer_header" xy-draggable>
+        <div class="word">全班作答结果统计</div>
+    </div>
+    <div class="xy_answer_rate">
+        <div class="xy_answer_r">
+            <div class="right">
+                正确率：{{cRateStr|percent}}
+            </div>
+        </div>
+        <div class="xy_answer_r">
+            <div class="join">
+                参与率：{{pRateStr|percent}}
+            </div>
+        </div>
+    </div>
+    <div class="xy_answer_stat">
+        <div class="letter"
+              ng-repeat="option in options"
+              ng-class="getOptionClassObj(option)">
+            <div class="select_one_letter"
+                  ng-click="triggerOptionInAnswer(option)">
+                {{option}}
+            </div>
+            <div class="rate_itself"
+                  ng-class="{hasMember: getStudentsByOption(option).length > 0&&isNormalMode(),open: !isNormalMode()}"
+                  ng-click="openStudentListByOption(option)">
+                <div class="color_one"
+                      style="width:{{getStudentRateByOption(option) | percent}}">
+                </div>
+                <div class="rate_text_one">
+                    {{getStudentsCountByOption(option)}}人
+                </div>
+                <i class="iconfont xy_answer_deail_right_arrow">&#xe606;</i>
+            </div>
+        </div>
+        <div class="rate_itself_five">
+            <div class="nothing">
+                未答
+            </div>
+            <div class="rate_itself_two"
+                 ng-class="{hasMember: getUnAnsweredStudentCount() > 0&&isNormalMode(),open: !isNormalMode()}"
+                 ng-click="openUnAnsweredStudentList()">
+                <div class="color_two"
+                      style="width:{{getUnAnsweredStudentRate() | percent}}">
+                </div>
+                <div class="rate_text_two">
+                      {{getUnAnsweredStudentCount()}}人
+                  </div>
+                <i class="iconfont xy_answer_deail_right_arrow">&#xe606;</i>
+            </div>
+        </div>
+
+        <div class="xy-prompt" ng-bind="promptMsg"></div>
+    </div>
+    <xy-alert ng-show="_alerting" xy-content="{{_alertContent}}"></xy-alert>
+</div>
+<xy-float-tabs xy-style="greenBlack"></xy-float-tabs>

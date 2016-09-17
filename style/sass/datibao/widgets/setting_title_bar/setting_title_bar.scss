@@ -1,0 +1,63 @@
+.xy-setting-title-bar{
+  padding-left: 35px;
+  cursor: default;
+
+  .xy-title-bar{
+    height: 63px;
+
+    &>div:first-child {
+      float: left;
+    }
+
+    div{
+      .title-icon{
+        margin-top: -3px;
+        margin-right: 1px;
+      }
+      button{
+        width:140px;
+        height:60px;
+        border: 0;
+        margin-top: 3px;
+      }
+      .xy-title-bar-student{
+        background: $deepGreen url(../../../../../img/title-bar-student.png) no-repeat;
+        background-origin: content-box;
+        padding: 20px 0 0 20px;
+        &:hover{
+          background: $deepGreen url(../../../../../img/title-bar-student-hover.png) no-repeat;
+        }
+        &.active{
+          background: $deepGreen url(../../../../../img/title-bar-student-hover.png) no-repeat;
+        }
+      }
+
+      .xy-title-bar-class{
+        background: $deepGreen url(../../../../../img/title-bar-class.png) no-repeat;
+        background-origin: content-box;
+        padding: 21px 0 0 15px;
+        margin-left: -5px;
+        cursor: pointer;
+        &:hover{
+          background: $deepGreen url(../../../../../img/title-bar-class-hover.png) no-repeat;
+        }
+        &.active{
+          background: $deepGreen url(../../../../../img/title-bar-class-hover.png) no-repeat;
+        }
+      }
+
+      .xy-title-bar-teacher{
+        background: $deepGreen url(../../../../../img/title-bar-teacher.png) no-repeat;
+        background-origin: content-box;
+        padding: 21px 0 0 19px;
+        margin-left: -6px;
+        &:hover{
+          background: $deepGreen url(../../../../../img/title-bar-teacher-hover.png) no-repeat;
+        }
+        &.active{
+          background: $deepGreen url(../../../../../img/title-bar-teacher-hover.png) no-repeat;
+        }
+      }
+    }
+  }
+}

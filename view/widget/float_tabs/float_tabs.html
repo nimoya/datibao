@@ -1,0 +1,9 @@
+<div class="{{style}}">
+    <div ng-show="isFolden" ng-click="expandWin()" style="width: 30px;height: 100px;position:absolute;left: 0;cursor:pointer;top:0;background: #fffdef;z-index: 100">
+        <div class="spread">展</br>开</div>
+    </div>
+    <div class="bottom" style="width: 100%;height: 50px;position:absolute;bottom:2px;background: #ffffff">
+        <button class="retract " tabindex="-1" ng-click="foldWin()"><div class="tab_one" >收起</div></button>
+        <button class="return" tabindex="-1" ng-click="closeWin()"><div class="tab_two">返回</div></button>
+    </div>
+</div>

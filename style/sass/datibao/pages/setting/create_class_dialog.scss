@@ -1,0 +1,188 @@
+.xy-setting-add-class{
+  padding-right: 0 !important;
+.modal-dialog.modal-lg{
+  width: 400px;
+  margin:25% auto;
+  .modal-content{
+  background-color: transparent;
+    width:$addwidth;
+    height:200px;
+  }
+ }
+}
+
+.xy_create_class{
+  &.unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  background-color: $white;
+  width: $addwidth;
+  height:200px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 1px solid $deepGreen;
+  .xy-create-class-header{
+    background-color: $deepGreen;
+    color: #fff;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    span{
+      cursor: default;
+    }
+    button{
+      border: none;
+      background: none;
+      float: right;
+    }
+  }
+  .title{
+    width: 100%;
+    height: 30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .xy_create_class_enter{
+    font-family: "Microsoft YaHei";
+    font-size: 20px;
+    color:$middleGray;
+    padding-top: 20px;
+    padding-left: 30px;
+  }
+  .xy_create_class_content{
+    padding-top:10px;
+    padding-left: 30px;
+    .xy_create_class_name{
+      width: 262px;
+      height: 30px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border: 1px solid $littleGrey;
+      padding-left: 15px;
+    }
+  }
+  .xy_create_class_button{
+    width: 100%;
+    padding-top:6px;
+    padding-left: 26px;
+    margin-right: 10px;
+    .xy_create_class_ok,
+    .xy_create_class_cancel{
+      border:0;
+      width: $btnwidth;
+      height: $btnheight;
+      color:$white;
+      margin-right:3px;
+      outline: 0;
+    }
+    .xy_create_class_ok,
+    .xy_create_class_cancel{
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .xy_create_class_ok{
+      background-color: $deepGreen;
+      &:hover{
+        background-color: $hoverBlue;
+      }
+    }
+    .xy_create_class_cancel{
+      background-color: $middleGray;
+      &:hover{
+        background-color: $normalGrey;
+      }
+    }
+  }
+  .error_lip{
+    width: 100%;
+    height: 20px;
+    color: $orange;
+    padding: 4px 30px;
+  }
+}
+
+.xy_setting_class_name{
+  display: inline-block;
+  float: left;
+  background-color:$white;
+  padding: 0 2px;
+  width: 104px;
+  height: 22px;
+  line-height: 22px;
+  cursor: pointer;
+}
+.xy_setting_class_name_a{
+  display: block;
+  width: 112px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size: 14px;
+  position: relative;
+  padding-right: 18px;
+  color: $black;
+  height: 20px;
+ &:hover,
+ &:focus{
+    color: $black;
+    text-decoration: none;
+  }
+}
+.xy_setting_class_name_bottom_arrow{
+  position: absolute;
+  right: -4px;
+  font-size: 20px;
+  top: 0;
+  color: $black;
+}
+
+.xy-setting-manage-btn{
+  margin-left: 10px;
+  float: right;
+}
+.xy_setting_class_name_ul{
+  left:-6px;
+  border-radius:0;
+  width: 198px;
+  overflow-y: auto;
+  max-height: 200px;
+}
+.xy_setting_class_name_list .xy_setting_class_name_list_a{
+  padding: 3px 9px;
+  font-size: 14px;
+  width: 100%;
+  @include textOverflowEllipsis;
+}
+div.xy-setting{
+  padding: 0 5px;
+  background-color: $deepGreen;
+}
+div.xy-setting-header{
+  margin-bottom: 0;
+  padding-bottom: 40px;
+  background-color: $white;
+}
+div.xy-setting-body{
+  background-color: $white;
+}
+div.xy-setting-footer{
+  padding:20px 40px 0 40px;
+  background-color: $white;
+  height: 92px;
+}
+p.xy-setting-operating-instruction{
+  margin: 0;
+}
+
+
+
+

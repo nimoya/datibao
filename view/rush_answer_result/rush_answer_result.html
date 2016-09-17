@@ -1,0 +1,21 @@
+<div class='xy-rush-answer-result unselectable'>
+    <div class="rush_student">
+        <div class="header" title="{{title}}" xy-draggable>{{title}}</div>
+
+        <div class="rush_content">
+            <div class="rush_list">抢答顺序</div>
+            <div class="list_stu"
+                 ng-repeat="student in students" >
+                <a ng-click="openStudentStage($index)">
+                    <div class="index">
+                        {{$index + 1}}
+                    </div>
+                    <div class="name" title="{{student.name}}">
+                        {{student.name}}
+                    </div>
+                </a>
+            </div>
+        </div>
+        <xy-float-tabs xy-style="green"></xy-float-tabs>
+    </div>
+</div>

@@ -1,0 +1,368 @@
+@import "prompt_dialog/prompt_dialog";
+
+.xy-report{
+  &.unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  .xy_title_bar{
+    .xy_bar_ops{
+      margin-top: 2px;
+    }
+  }
+
+  @include bottomOpenSize;
+  overflow: hidden;
+
+  .xy-report-body{
+    overflow: auto;
+    height: 665px;
+     background-color: $white;
+    padding-bottom: 10px;
+    @include bottomOpenPaddingLR;
+    @include bottomOpenPaddingT;
+    .xy_report_date_box {
+      &>span{
+        font-size: 18px;
+        line-height: 34px;
+        float: left;
+        margin-right: 15px;
+      }
+      .xy_report_date {
+        position: relative;
+        float: left;
+        margin-right: 15px;
+
+        .xy_report_form_date {
+          width: 145px;
+          float: left;
+          padding-right: 42px;
+          background: none;
+        }
+
+        .xy_report_btn {
+          position: absolute;
+          top: 0;
+          left: 106px;
+        }
+      }
+      &::after{
+        content: "";
+        display: block;
+        clear: both;
+      }
+    }
+
+    .class-name{
+      font-size: 18px;
+      margin-right: 10px;
+      position: relative;
+      bottom: 30px;
+      float: right;
+      max-width: 360px;
+      @include textOverflowEllipsis;
+    }
+
+    .xy-report-no-data {
+      height: 600px;
+      padding: 20px 0;
+
+      .xy-report-no-data-background {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        border: $greyBorder;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-image: url("../../../../../img/no_data.png");
+      }
+
+      .xy-report-no-data-prompt {
+        margin: 350px auto 0;
+        display: block;
+        font-size: 20px;
+        color: $twoGray;
+      }
+    }
+
+    .xy_report_rate_pRate,
+    .xy_report_answer_details{
+      width: 100%;
+      line-height: 40px;
+      margin: 10px 0;
+      padding: 0 10px;
+      font-family: "Microsoft YaHei";
+      font-size: 18px;
+      background-color: $gray;
+    }
+
+    .xy_report_all_achievement{
+      overflow: hidden;
+
+      .xy_report_excellent,
+      .xy_report_good,
+      .xy_report_qualified,
+      .xy_report_substandard{
+        float: left;
+        margin: 15px 25px 15px 0;
+        &:last-child{
+          margin-right:0;
+        }
+
+        span{
+          display: inline-block;
+          padding: 5px 10px;
+          &:nth-child(2){
+            width: 45px;
+            padding: 0;
+            text-align: center;
+          }
+        }
+
+      }
+      .xy_report_excellent{
+        border:1px solid $twoGreen;
+
+        .xy_report_excellent_rate{
+          background-color: $twoGreen;
+        }
+      }
+      .xy_report_good{
+        border:1px solid $lightGreen;
+
+        .xy_report_good_rate{
+          background-color: $lightGreen;
+        }
+      }
+      .xy_report_qualified{
+        border:1px solid $deepYellow;
+
+        .xy_report_qualified_rate{
+          background-color: $deepYellow;
+        }
+      }
+      .xy_report_substandard{
+        border:1px solid $lightRed;
+
+        .xy_report_substandard_rate{
+          background-color: $lightRed;
+        }
+      }
+    }
+
+    .report-form{
+      width: 923px;
+      max-height: 558px;
+      overflow: auto;
+      margin: 10px auto 30px;
+      table{
+        width: 100%;
+        border: $greyBorder;
+        thead{
+          background-color: #666;
+          color: #fff;
+          tr{
+            font-weight: bold;
+            height: 56px;
+            th{
+              text-align: center;
+              min-width: 132px;
+              font-size: 16px;
+              &:first-child{
+                width: 100px;
+              }
+              &:nth-child(2){
+                width: 320px;
+              }
+              &:nth-child(3),&:nth-child(4){
+                width: 150px;
+              }
+            }
+          }
+        }
+        tbody{
+          color: $orange;
+          tr{
+            height: 50px;
+            border-bottom:$greyBorder;
+            &.highrate{
+              color:#46e895;
+            }
+            &.secondrate{
+              color:#14e1da;
+            }
+            &.thirdrate{
+              color: #fed267;
+            }
+            &.lastrate{
+              color:#ff896f;
+            }
+            td{
+              text-align: center;
+              min-width: 132px;
+              max-width: 300px;
+              padding: 0 20px;
+              font-size: 16px;
+              border-right:$greyBorder;
+              @include textOverflowEllipsis;
+              a{
+                &:hover{
+                  text-decoration: none;
+                  cursor: pointer;
+                }
+              }
+              &:first-child{
+                width: 100px;
+              }
+              &:nth-child(2){
+                width: 320px;
+              }
+              &:nth-child(3),&:nth-child(4){
+                width: 150px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .xy-report-students{
+      overflow: hidden;
+
+      .xy_report_students_list{
+        @include  textOverflowEllipsis;
+
+        float: left;
+        width: 80px;
+        margin: 5px 10px 5px 0;
+        padding: 5px 10px;
+        text-align: center;
+
+        &.excellent{
+          background-color: $twoGreen;
+        }
+
+        &.good{
+          background-color: $lightGreen;
+        }
+
+        &.qualified{
+          background-color: $deepYellow;
+        }
+
+        &.unqualified{
+          background-color: $lightRed;
+        }
+      }
+    }
+
+    .xy-report-student-answer-detail{
+      width: 100%;
+      margin-top: 20px;
+      overflow: auto;
+    }
+    .xy-report-student-answer-detail_table{
+      border-left: $greyBorder;
+      border-right: $greyBorder;
+      width: 100%;
+    }
+    .xy-report-student-answer-detail_table_tr{
+      line-height: 30px;
+      border-bottom: $greyBorder;
+
+      &:first-child {
+        border-top: $greyBorder;
+      }
+
+      .xy-report-student-question-records-wrapper {
+        margin-left: 190px;
+        padding: 5px;
+      }
+
+    }
+    .xy-report-student-answer-detail_table_tr_td{
+      text-align: center;
+      width: 95px;
+      line-height: 52px;
+      padding: 10px 0;
+      border-right: $greyBorder;
+      padding-bottom: 1000px;
+      margin-bottom:-1000px;
+      overflow: hidden;
+    }
+
+    .xy_report_records{
+      padding: 10px;
+
+      .xy_report_records_div{
+        width: 66px;
+        border:1px solid $greyWhite;
+        border-radius: 5px;
+        margin: 0 auto;
+
+        &.correct {
+          border:1px solid $twoGreen;
+
+          .index{
+            background-color: $twoGreen;
+          }
+        }
+
+        &.error {
+          border:1px solid $lightRed;
+
+          .index{
+            background-color: $lightRed;
+          }
+        }
+
+        span{
+          display: inline-block;
+          width: 50%;
+          text-align: center;
+          span{
+            img{
+              height: 14px;
+            }
+          }
+        }
+
+        .index {
+          background-color: $greyWhite;
+        }
+      }
+    }
+
+    .xy-report-student-answer-detai_name{
+      @include textOverflowEllipsis;
+
+      display: block;
+      padding: 0 10px;
+      width: 95px;
+    }
+
+
+  }
+
+  .uib-datepicker-popup {
+    .uib-button-bar {
+      display: none;
+    }
+
+    .uib-daypicker {
+      .btn {
+        border: none !important;
+      }
+    }
+  }
+
+
+
+  .xy-report circle,.raphael-group-83-col-hot > rect{
+    cursor: pointer;
+  }
+  .xy-report .raphael-group-101-creditgroup > text > tspan{
+    display: none;
+  }
+}

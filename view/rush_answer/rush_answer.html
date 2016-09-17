@@ -1,0 +1,14 @@
+<!--这是抢答的页面-->
+<!--邓俊生 2016/6/3-->
+<div class="xy_rush_answer unselectable">
+    <div class="header" xy-draggable>全员抢答</div>
+    <div class="time_count">{{getTimeString()}}</div>
+    <div class="content">
+        <div class="rush_answer">抢答中...</div>
+        <div class="rush_answer_count">{{getAnsweredMembers().length}}</div>
+
+        <button class="return" tabindex="-1" ng-click="closeWin()">关闭</button>
+        <!--</div>-->
+    </div>
+    <xy-alert ng-show="alerting" xy-content="{{alertContent}}"></xy-alert>
+</div>
